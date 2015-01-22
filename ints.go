@@ -36,4 +36,23 @@ func LastIndex(s []int, t int) int {
 	return found_index
 }
 
+//Removes all instances of t if it exists in s
+func RemoveAll(s []int, t int) []int {
+	for i := Index(s, t); i >= 0; i = Index(s, t) {
+		s = RemoveAt(s, i)
+	}
+	return s
+}
+
+//Removes element at i from s
+func RemoveAt(s []int, i int) []int {
+	if i < 0 || i >= len(s) {
+		return s
+	}
+	res := make([]int, len(s)-1)
+	copy(res[0:i], s[0:i])
+	copy(res[i:], s[i+1:])
+	return res
+}
+
 //TODO Replace, Repeat, Split, Map
