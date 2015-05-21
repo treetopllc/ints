@@ -55,4 +55,14 @@ func RemoveAt(s []int, i int) []int {
 	return res
 }
 
+func Unique(s []int) []int {
+	res := make([]int, 0, len(s))
+	for _, i := range s {
+		if !Contains(res, i) {
+			res = append(res, i)
+		}
+	}
+	return res
+}
+
 //TODO Replace, Repeat, Split, Map
